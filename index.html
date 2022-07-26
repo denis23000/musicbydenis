@@ -1,0 +1,116 @@
+<html>
+
+    <head>
+    
+        <title>Music by Denis</title>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        
+     <style>
+   body {
+    background-image:url(images/Backgroung.jpg); 
+     background-repeat:no-repeat;
+         }
+  </style>
+        
+        
+     </head>
+    
+    <body>
+        
+        <font color="white"><h1>Music by Denis</h1></font>
+        <font color="white"><h2>Welcome to the Music by Denis</h2></font>
+        <font color="white"><h3>Here you can find the music I made. I make music with my smartphone when I ride the subway</h3></font>
+        <hr>
+        
+        <font color="white"><h4>1. 1st</h4></font> 
+        
+        <audio controls="controls">
+            <source src="audio/1.%201st.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>2. Forest</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/2.%20Forest.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>3. Metro</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/3.%20Metro.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>4. At night in the block</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/4.%20At%20night%20in%20the%20block.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>5. Urban lyrics</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/5.%20Urban%20lyrics.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>6. Fear</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/6.%20Fear.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>7. Bear</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/7.%20Bear.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>8. Windy</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/8.%20Windy.mp3" type="audio/mpeg">
+        </audio>
+        
+        <font color="white"><h4>9. Earth</h4></font>
+        
+        <audio controls="controls">
+            <source src="audio/9.%20Earth.mp3" type="audio/mpeg">
+        </audio>
+        
+        <script>
+        let audioNL = document.querySelectorAll('audio');
+        let audio = Array.apply(null, audioNL);
+
+        audio.forEach(t => {
+            let index = audio.indexOf(t);
+
+            t.addEventListener('play', ()=> {
+                audio.forEach(subT => {
+                    subT !== audio[index] ?
+                    (subT.pause(), subT.currentTime = 0) :
+                    subT.play()
+                })
+            })
+            t.addEventListener('ended', ()=> {
+                t.currentTime = 0;
+                index !== audio.length - 1 ?
+                    audio[index + 1].play() :
+                    null
+            })
+        });
+        
+    </script>
+        
+        
+        
+        
+        
+    </body>
+   
+   
+    
+</html>
